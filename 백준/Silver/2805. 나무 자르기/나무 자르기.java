@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.nio.file.ClosedWatchServiceException;
 import java.util.Arrays;
@@ -33,18 +32,18 @@ public class Main {
 
     public static long binarySearch() {
         long low = 0;
-        long high = 1_000_000_000;
+        long high = trees[N-1];
         long mid = (high + low) / 2;
         long result = mid;
 
-        while(low < high) {
+        while(low <= high) {
             mid = (high + low) / 2;
             if (isTreeLengthHigh(mid)) {
                 low = mid + 1;
                 result = mid;
             }
             else {
-                high = mid;
+                high = mid - 1;
             }
         }
 
