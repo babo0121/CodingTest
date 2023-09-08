@@ -1,2 +1,2 @@
-# Programmers
-Repository for recording Programmers Algorithm problem solving
+# Coding Test
+Repository for recording Programmers and Beakjoon Algorithm problem solving
