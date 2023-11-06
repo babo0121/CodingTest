@@ -9,38 +9,39 @@ import Foundation
 
 // 괄호의 값
 
-var parens = Array(readLine()!).map { String($0) }
+var input = Array(readLine()!).map { String($0) }
 var stack = [String]()
 var result = 0
 var isCorrect = true
 var temp = 1
 
-for i in parens.indices {
+for i in input.indices {
+    let c = input[i]
     
-    if parens[i] == "(" {
+    if c == "(" {
         temp *= 2
-        stack.append(parens[i])
-    } else if parens[i] == "[" {
+        stack.append(c)
+    } else if c == "[" {
         temp *= 3
-        stack.append(parens[i])
-    } else if parens[i] == ")" {
+        stack.append(c)
+    } else if c == ")" {
         if stack.isEmpty || stack.last != "(" {
             isCorrect = false
             break
         }
         
-        if parens[i-1] == "(" {
+        if input[i-1] == "(" {
             result += temp
         }
         stack.removeLast()
         temp /= 2
-    } else if parens[i] == "]" {
+    } else if c == "]" {
         if stack.isEmpty || stack.last != "[" {
             isCorrect = false
             break
         }
         
-        if parens[i-1] == "[" {
+        if input[i-1] == "[" {
             result += temp
         }
         stack.removeLast()
@@ -49,8 +50,6 @@ for i in parens.indices {
 }
 
 if !isCorrect || !stack.isEmpty {
-    print(0)
-} else {
-    print(result)
+    result = 0
 }
-
+print(result)
